@@ -1,9 +1,11 @@
-# OOP Template
+# Agenda++
 
 ### Tema 0
 
 - [ ] nume proiect (îl puteți schimba ulterior)
+- Agenda++
 - [ ] Scurtă descriere a temei alese, ce v-ați propus să implementați
+- O agenda virtuala care contine un calendar, to-do-lists, remindere, shopping-lists, journal-entries, alarme
 - [ ] actualizat `.gitignore` dacă nu sunt ignorate fișierele (binare) generate de editor/IDE; puteți folosi https://gitignore.io
 
 ## Tema 1
