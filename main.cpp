@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 //#include <date.h>
+#include <vector>
 
 class date{
     int day;
@@ -13,31 +14,22 @@ class date{
     int minute;
 };
 
-class to_do_list_item{
-    const int itemID;
+class item{
+    const int id;
     std::string itemContent;
     date addDate;
     date updateDate;
 };
 
-class journal_entry{
-    const int entryID;
-    std::string entryContent;
-    date addDate;
+class to_do_list{
+    const int id;
+    std::vector<item> list;
 };
 
-class shopping_list_item{
-    const int itemID;
-    std::string itemName;
-    date addDate;
+class agenda{
+    std::vector<to_do_list> agenda;
 };
 
-class reminder{
-    const int reminderID;
-    std::string reminderMSG;
-    date triggerDate;
-    date addDate;
-};
 int main(){
     return 0;
 }
