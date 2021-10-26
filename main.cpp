@@ -38,11 +38,28 @@ public:
 
     ~item() {}
 
+    void setId(int id) {
+        item::id = id;
+    }
+
+    void setItemContent(const std::string &itemContent) {
+        item::itemContent = itemContent;
+    }
+
+    void setAddDate(const date::year_month_day &addDate) {
+        item::addDate = addDate;
+    }
+
+    void setUpdateDate(const date::year_month_day &updateDate) {
+        item::updateDate = updateDate;
+    }
+
 };
 
 class to_do_list{
     const int id;
     std::vector<item> list;
+    int nrOfItems;
 
 public:
     to_do_list(const int id, const std::vector<item> &list) : id(id), list(list) {}
@@ -54,6 +71,21 @@ public:
 
         }
     }
+
+    void addItem(item item)
+    {
+        list.push_back(item);
+        nrOfItems = list.size() + 1;
+    }
+
+    const int getId() const {
+        return id;
+    }
+
+    int getNrOfItems() const {
+        return nrOfItems;
+    }
+
 };
 
 class agenda{
