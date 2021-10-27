@@ -14,6 +14,7 @@ class item{
     /*const*/ date::year_month_day addDate;
     date::year_month_day updateDate;
 
+
 public:
     item(const int id, const std::string &itemContent, const date::year_month_day &addDate,
          const date::year_month_day &updateDate) : id(id), itemContent(itemContent), addDate(addDate),
@@ -98,7 +99,7 @@ public:
     void addItem(item item)
     {
         list.push_back(item);
-        nrOfItems = list.size() + 1;
+        nrOfItems = list.size();
     }
 
     const int getId() const {
@@ -126,5 +127,6 @@ int main(){
     l1.addItem(i1);
     l1.addItem(i2);
     std::cout << l1;
+    std::cout << l1.getNrOfItems();
     return 0;
 }
