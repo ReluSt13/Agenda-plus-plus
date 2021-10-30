@@ -20,6 +20,9 @@ public:
          const date::year_month_day &updateDate) : id(id), itemContent(itemContent), addDate(addDate),
                                                    updateDate(updateDate) {}
 
+    item(const int id, const std::string &itemContent, const date::year_month_day &addDate)
+    : item(id, itemContent, addDate, 2020_y/1/1) {}
+
     item(const item& copie) : id(copie.id), itemContent(copie.itemContent),
                               addDate(copie.addDate), updateDate(copie.updateDate) {}
 
@@ -86,19 +89,37 @@ public:
     to_do_list(const int id, const std::vector<item> &list) : id(id), list(list) {}
 
     friend std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list){
-        os << "List ID: " << to_do_list.id << "\n";
-        for(const auto& item : to_do_list.list)
+        if(to_do_list.list.size() == 0)
+            os << "List with ID = " << to_do_list.id << " is empty!\n";
+        else
         {
-            os << "Item ID: " << item.getId() << "\n";
-            os << "Content: " << item.getItemContent() << "\n";
-            os << "Add date: " << item.getAddDate() << "\n";
-            os << "Update date: " << item.getUpdateDate() << "\n";
+            os << "List ID: " << to_do_list.id << "\n";
+            for(const auto& item : to_do_list.list)
+            {
+                os << "Item ID: " << item.getId() << "\n";
+                os << "Content: " << item.getItemContent() << "\n";
+                os << "Add date: " << item.getAddDate() << "\n";
+                os << "Update date: " << item.getUpdateDate() << "\n\n";
+            }
         }
+
     }
 
     void addItem(item item)
     {
         list.push_back(item);
+        nrOfItems = list.size();
+    }
+
+    void deleteLastItem()
+    {
+        list.pop_back();
+        nrOfItems = list.size();
+    }
+
+    void deleteItemByID(int ID)
+    {
+        list.erase(list.begin() + ID - 1);
         nrOfItems = list.size();
     }
 
@@ -121,12 +142,17 @@ public:
 
 int main(){
 
-    item i1(1, "Ceva", 2021_y/1/1, 2021_y/1/1);
-    item i2(2, "CEVAsiALTCEVA", 2021_y/2/3, 2021_y/1/1);
+    item i1(1, "Ceva", 2021_y/1/1);
+    item i2(2, "CEVAsiALTCEVA", 2021_y/2/3);
     to_do_list l1(1);
     l1.addItem(i1);
     l1.addItem(i2);
     std::cout << l1;
-    std::cout << l1.getNrOfItems();
+    std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n\n";
+    l1.deleteItemByID(1);
+    std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n";
+    l1.deleteItemByID(2);
+    std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n";
+    std::cout << l1;
     return 0;
 }
