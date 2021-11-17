@@ -46,6 +46,8 @@ public:
 
     const date::year_month_day &getUpdateDate() const;
 
+    void updateContent(std::string itemContent);
+
 };
 
 

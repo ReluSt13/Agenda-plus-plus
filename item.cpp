@@ -50,6 +50,11 @@ void item::setUpdateDate(const date::year_month_day &updateDate) {
     item::updateDate = updateDate;
 }
 
+void item::updateContent(std::string itemContent){
+    item::itemContent = itemContent;
+    item::updateDate = date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
+}
+
 int item::getId() const {
     return id;
 }

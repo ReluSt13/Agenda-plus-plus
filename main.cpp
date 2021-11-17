@@ -17,16 +17,17 @@ int main(){
     item i2("CEVAsiALTCEVA");
     item i3("cumpara rosii");
     item i4("tema bd");
-    to_do_list l1(1);
+    to_do_list l1;
+    to_do_list l2;
     l1.addItem(i1);
     l1.addItem(i2);
-    l1.addItem(i3);
-    l1.addItem(i4);
-    std::cout << l1;
+    l2.addItem(i3);
+    l2.addItem(i4);
     std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n\n";
-    l1.deleteItemByID(2);
-    l1.deleteLastItem();
     std::cout << l1;
-    std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n\n";
+    std::cout << "Number of items in list: " << l2.getNrOfItems() << "\n\n";
+    std::cout << l2;
+    i3.updateContent("cumpara rosii cherry"); //pushback face o copie deci nu se updateaza i3 si in vector
+    std::cout << l2;
     return 0;
 }

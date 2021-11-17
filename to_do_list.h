@@ -12,12 +12,13 @@ class to_do_list{
     const int id;
     std::vector<item> list;
     int nrOfItems;
+    static int id_max;
 
 public:
 
-    to_do_list(const int id);
+    to_do_list();
 
-    to_do_list(const int id, const std::vector<item> &list);
+    to_do_list(const std::vector<item> &list);
 
     friend std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list);
 

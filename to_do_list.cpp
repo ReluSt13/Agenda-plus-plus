@@ -4,10 +4,11 @@
 
 #include "to_do_list.h"
 
+int to_do_list::id_max = 1;
 
-to_do_list::to_do_list(const int id) : id(id) {}
+to_do_list::to_do_list() : id(id_max) {id_max++;}
 
-to_do_list::to_do_list(const int id, const std::vector<item> &list) : id(id), list(list) {}
+to_do_list::to_do_list(const std::vector<item> &list) : id(id_max), list(list) {id_max++;}
 
 std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list) {
     if(to_do_list.list.size() == 0)
