@@ -13,16 +13,19 @@ class to_do_list{
     std::vector<item> list;
     int nrOfItems;
     static int id_max;
+    std::string listName;
 
 public:
 
-    to_do_list();
+    to_do_list(const std::string &listName);
 
-    to_do_list(const std::vector<item> &list);
+    to_do_list(const to_do_list &copie);
 
     friend std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list);
 
     void addItem(item item);
+
+    item& getItem(int ID);
 
     void deleteLastItem();
 

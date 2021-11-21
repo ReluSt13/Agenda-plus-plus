@@ -5,7 +5,7 @@
 #include "item.h"
 using namespace date::literals;
 
-int item::id_max = 1;
+int item::id_max = 0;
 
 item::item(const std::string &itemContent, const date::year_month_day &addDate, const date::year_month_day &updateDate)
         : id(id_max), itemContent(itemContent), addDate(addDate),
@@ -30,6 +30,7 @@ std::ostream &operator<<(std::ostream &os, const item &item) {
     os << "Content: " << item.itemContent << "\n";
     os << "Add date: " << item.addDate << "\n";
     os << "Update date: " << item.updateDate << "\n";
+    return os;
 }
 
 item::~item() {}
@@ -50,7 +51,7 @@ void item::setUpdateDate(const date::year_month_day &updateDate) {
     item::updateDate = updateDate;
 }
 
-void item::updateContent(std::string itemContent){
+void item::updateContent(std::string itemContent) {
     item::itemContent = itemContent;
     item::updateDate = date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
 }

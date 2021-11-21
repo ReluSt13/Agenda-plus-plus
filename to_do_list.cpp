@@ -4,11 +4,12 @@
 
 #include "to_do_list.h"
 
-int to_do_list::id_max = 1;
+int to_do_list::id_max = 0;
 
-to_do_list::to_do_list() : id(id_max) {id_max++;}
+to_do_list::to_do_list(const std::string &listName) : id(id_max), listName(listName) {id_max++;}
 
-to_do_list::to_do_list(const std::vector<item> &list) : id(id_max), list(list) {id_max++;}
+to_do_list::to_do_list(const to_do_list &copie) : id(copie.id), listName(copie.listName),
+                                                   nrOfItems(copie.nrOfItems), list(copie.list) {}
 
 std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list) {
     if(to_do_list.list.size() == 0)
@@ -16,20 +17,31 @@ std::ostream &operator<<(std::ostream &os, const to_do_list &to_do_list) {
     else
     {
         os << "List ID: " << to_do_list.id << "\n";
+        os << "List Name: " << to_do_list.listName << "\n";
+        os << "-----------------------------------\n";
         for(const auto& item : to_do_list.list)
         {
             os << "Item ID: " << item.getId() << "\n";
             os << "Content: " << item.getItemContent() << "\n";
             os << "Add date: " << item.getAddDate() << "\n";
-            os << "Update date: " << item.getUpdateDate() << "\n\n";
+            os << "Update date: " << item.getUpdateDate() << "\n";
         }
+        os << "-----------------------------------\n";
     }
-
+    return os;
 }
 
 void to_do_list::addItem(item item) {
     list.push_back(item);
     nrOfItems = list.size();
+}
+
+item& to_do_list::getItem(int ID) {
+    for(auto& item : list)
+    {
+        if(item.getId() == ID)
+            return item;
+    }
 }
 
 void to_do_list::deleteLastItem() {
@@ -38,7 +50,13 @@ void to_do_list::deleteLastItem() {
 }
 
 void to_do_list::deleteItemByID(int ID) {
-    list.erase(list.begin() + ID - 1);
+    int pos = 0;
+    for(auto& item : list)
+    {
+        if(item.getId() == ID)
+            list.erase(list.begin() + pos);
+        pos++;
+    }
     nrOfItems = list.size();
 }
 

@@ -12,22 +12,20 @@
 using namespace date::literals;
 
 int main(){
-
-    item i1( "Ceva");
-    item i2("CEVAsiALTCEVA");
-    item i3("cumpara rosii");
-    item i4("tema bd");
-    to_do_list l1;
-    to_do_list l2;
-    l1.addItem(i1);
-    l1.addItem(i2);
-    l2.addItem(i3);
-    l2.addItem(i4);
-    std::cout << "Number of items in list: " << l1.getNrOfItems() << "\n\n";
-    std::cout << l1;
-    std::cout << "Number of items in list: " << l2.getNrOfItems() << "\n\n";
-    std::cout << l2;
-    i3.updateContent("cumpara rosii cherry"); //pushback face o copie deci nu se updateaza i3 si in vector
-    std::cout << l2;
+    to_do_list list1("workout");
+    to_do_list list2("groceries");
+    list1.addItem({"5km run"});
+    list1.addItem({"20 push-ups"});
+    list2.addItem({"buy tomatoes"});
+    list2.addItem({"buy sugar"});
+    list2.addItem({"buy flour"});
+    std::cout << "Number of items in list: " << list1.getNrOfItems() << "\n\n";
+    std::cout << list1;
+    std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
+    std::cout << list2;
+    list2.getItem(2).updateContent("buy cherry tomatoes");
+    std::cout << list2;
+    list2.deleteItemByID(3);
+    std::cout << list2;
     return 0;
 }
