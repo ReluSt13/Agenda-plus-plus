@@ -3,16 +3,23 @@
 //
 
 #include "item.h"
+#include "exceptii.h"
 using namespace date::literals;
 
 int item::id_max = 0;
 
 item::item(const std::string &itemContent, const date::year_month_day &addDate, const date::year_month_day &updateDate)
         : id(id_max), itemContent(itemContent), addDate(addDate),
-          updateDate(updateDate) {id_max++;}
+          updateDate(updateDate) {
+    if(itemContent.size() <= 0 || itemContent.size() >= 500)
+        throw eroare_contentLen(itemContent.size());
+    if(updateDate < addDate)
+        throw eroare_dataUpdate();
+    id_max++;
+}
 
 item::item(const std::string &itemContent)
-        : item(itemContent, date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())}, 2020_y/1/1) {}
+        : item(itemContent, date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())}, 3020_y/1/1) {}
 
 item::item(const item &copie) : id(copie.id), itemContent(copie.itemContent),
                                 addDate(copie.addDate), updateDate(copie.updateDate) {}
@@ -35,23 +42,10 @@ std::ostream &operator<<(std::ostream &os, const item &item) {
 
 item::~item() {}
 
-void item::setId(int id) {
-    item::id = id;
-}
-
-void item::setItemContent(const std::string &itemContent) {
-    item::itemContent = itemContent;
-}
-
-void item::setAddDate(const date::year_month_day &addDate) {
-    item::addDate = addDate;
-}
-
-void item::setUpdateDate(const date::year_month_day &updateDate) {
-    item::updateDate = updateDate;
-}
 
 void item::updateContent(std::string itemContent) {
+    if(itemContent.size() <= 0 || itemContent.size() >= 500)
+        throw eroare_contentUpdate(itemContent.size());
     item::itemContent = itemContent;
     item::updateDate = date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
 }

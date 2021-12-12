@@ -3,10 +3,15 @@
 //
 
 #include "to_do_list.h"
+#include "exceptii.h"
 
 int to_do_list::id_max = 0;
 
-to_do_list::to_do_list(const std::string &listName) : id(id_max), listName(listName) {id_max++;}
+to_do_list::to_do_list(const std::string &listName) : id(id_max), listName(listName) {
+    if(listName.size() <= 0  || listName.size() >= 40)
+        throw eroare_numeLista(listName.size());
+    id_max++;
+}
 
 to_do_list::to_do_list(const to_do_list &copie) : id(copie.id), listName(copie.listName),
                                                    nrOfItems(copie.nrOfItems), list(copie.list) {}
@@ -37,11 +42,14 @@ void to_do_list::addItem(item item) {
 }
 
 item& to_do_list::getItem(int ID) {
+    if(ID < 0)
+        throw std::invalid_argument("ID-ul nu poate fi negativ");
     for(auto& item : list)
     {
         if(item.getId() == ID)
             return item;
     }
+    //return ceva;
 }
 
 void to_do_list::deleteLastItem() {
@@ -50,6 +58,8 @@ void to_do_list::deleteLastItem() {
 }
 
 void to_do_list::deleteItemByID(int ID) {
+    if(ID < 0)
+        throw std::invalid_argument("ID-ul nu poate fi negativ");
     int pos = 0;
     for(auto& item : list)
     {

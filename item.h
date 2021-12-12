@@ -30,14 +30,6 @@ public:
 
     ~item();
 
-    void setId(int id);
-
-    void setItemContent(const std::string &itemContent);
-
-    void setAddDate(const date::year_month_day &addDate);
-
-    void setUpdateDate(const date::year_month_day &updateDate);
-
     int getId() const;
 
     const std::string &getItemContent() const;
