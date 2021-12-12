@@ -21,4 +21,4 @@ eroare_numeLista::eroare_numeLista(int nrChar) : eroare_lista("Eroare nume lista
 eroare_contentUpdate::eroare_contentUpdate(int contentSize) : eroare_item("Eroare updatare content: au fost introduse: "s + std::to_string(contentSize) + " caractere"s) {}
 
 
-item_not_found::item_not_found(int ID) : eroare_item("Item-ul cu ID-ul: " + std::to_string(ID) + " nu a fost gasit.") {}
+item_not_found::item_not_found(int ID) : eroare_item("Item-ul cu ID-ul: "s + std::to_string(ID) + " nu a fost gasit."s) {}
