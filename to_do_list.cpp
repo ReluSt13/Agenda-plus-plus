@@ -49,7 +49,7 @@ item& to_do_list::getItem(int ID) {
         if(item.getId() == ID)
             return item;
     }
-    //return ceva;
+    throw item_not_found(ID);
 }
 
 void to_do_list::deleteLastItem() {

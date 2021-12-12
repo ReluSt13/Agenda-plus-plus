@@ -37,4 +37,9 @@ public:
     explicit eroare_numeLista(int nrChar);
 };
 
+class item_not_found : public eroare_item {
+public:
+    explicit item_not_found(int ID);
+};
+
 #endif //AGENDA_PLUS_PLUS_EXCEPTII_H
