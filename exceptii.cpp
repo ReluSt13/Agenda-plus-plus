@@ -3,6 +3,7 @@
 //
 
 #include "exceptii.h"
+#include <string>
 
 using namespace std::string_literals;
 
