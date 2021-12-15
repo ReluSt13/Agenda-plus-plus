@@ -6,13 +6,13 @@
 #define AGENDA_PLUS_PLUS_AGENDA_H
 
 
-#include "to_do_list.h"
+#include "List.h"
 
 class agenda{
-    std::vector<to_do_list> notebook;
+    std::vector<List> notebook;
 
 public:
-    agenda(const std::vector<to_do_list> &notebook);
+    agenda(const std::vector<List> &notebook);
 };
 
 #endif //AGENDA_PLUS_PLUS_AGENDA_H

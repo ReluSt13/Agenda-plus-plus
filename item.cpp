@@ -33,11 +33,20 @@ item &item::operator=(const item &copie) {
 }
 
 std::ostream &operator<<(std::ostream &os, const item &item) {
-    os << "Item ID: " << item.id << "\n";
-    os << "Content: " << item.itemContent << "\n";
-    os << "Add date: " << item.addDate << "\n";
-    os << "Update date: " << item.updateDate << "\n";
+
+    return item.print(os);
+}
+
+std::ostream& item::print(std::ostream& os) const {
+    os << "Item ID: " << this->id << "\n";
+    os << "Content: " << this->itemContent << "\n";
+    os << "Add date: " << this->addDate << "\n";
+    os << "Update date: " << this->updateDate << "\n";
     return os;
+}
+
+std::shared_ptr<item> item::clone() const {
+    return std::make_shared<item>(*this);
 }
 
 item::~item() {}

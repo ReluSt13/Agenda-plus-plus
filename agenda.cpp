@@ -4,4 +4,4 @@
 
 #include "agenda.h"
 
-agenda::agenda(const std::vector<to_do_list> &notebook) : notebook(notebook) {}
+agenda::agenda(const std::vector<List> &notebook) : notebook(notebook) {}

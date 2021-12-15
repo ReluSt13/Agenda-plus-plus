@@ -28,7 +28,11 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const item &item);
 
-    ~item();
+    virtual std::ostream& print(std::ostream& os) const;
+
+    virtual std::shared_ptr<item> clone() const;
+
+    virtual ~item();
 
     int getId() const;
 
