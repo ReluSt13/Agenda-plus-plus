@@ -23,6 +23,8 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const List &to_do_list);
 
+    virtual List &operator=(const List &copie);
+
     virtual std::ostream& print(std::ostream& os) const;
 
     void addItem(const std::shared_ptr<item>& item);

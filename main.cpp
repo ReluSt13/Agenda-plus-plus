@@ -45,8 +45,7 @@ int main(){
         std::cout << list2;
         list2.getItem(2)->updateContent("buy cherry tomatoes");
         list2.deleteLastItem();
-        std::cout << list2;
-        //list2.deleteItemByID(3); PROBLEMA CU deleteItemByID()
+        list2.deleteItemByID(3);
         std::cout << list2;
     }
     catch (eroare_lista& eroare) {

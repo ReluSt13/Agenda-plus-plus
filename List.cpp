@@ -14,7 +14,11 @@ List::List(const std::string &listName) : id(id_max), listName(listName){
 }
 
 List::List(const List &copie) : id(copie.id), listName(copie.listName),
-                                                   nrOfItems(copie.nrOfItems), list(copie.list) {}
+                                                   nrOfItems(copie.nrOfItems) {
+    for (const auto &data : copie.list) {
+        list.push_back(data->clone());
+    }
+}
 
 std::ostream &operator<<(std::ostream &os, const List &to_do_list) {
     return to_do_list.print(os);
@@ -38,6 +42,17 @@ std::ostream& List::print(std::ostream& os) const {
         os << "-----------------------------------\n";
     }
     return os;
+}
+
+List &List::operator=(const List &copie) {
+    if (this != &copie) {
+        auto lista_noua = std::vector<std::shared_ptr<item>>();
+        for (const auto &data : copie.list) {
+            lista_noua.push_back(data->clone());
+        }
+        list = lista_noua;
+    }
+    return *this;
 }
 
 void List::addItem(const std::shared_ptr<item>& item) {
@@ -65,10 +80,12 @@ void List::deleteItemByID(int ID) {
     if(ID < 0)
         throw std::invalid_argument("ID-ul nu poate fi negativ");
     int pos = 0;
-    for(auto& item : list)
+    for(auto& data : list)
     {
-        if(item->getId() == ID)
+        if(data->getId() == ID) {
             list.erase(list.begin() + pos);
+            break;
+        }
         pos++;
     }
     nrOfItems = list.size();
