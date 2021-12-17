@@ -32,18 +32,22 @@ int main(){
         l1.updatePercentage();
         std::cout << l1;
 
-        shopping_item s_item1("acesta este un item", 2);
+        shopping_item s_item1("acesta este un item", 3.6,  2);
         shopping_list s_list1("shopping list1", 15.6);
         s_list1.addItem(std::make_shared<shopping_item>(s_item1));
         std::cout << s_list1;
         s_list1.getItem(7)->updateContent("item1");
         dynamic_cast<shopping_item&>(*s_list1.getItem(7)).updateQuantity(3);
+        dynamic_cast<shopping_item&>(*s_list1.getItem(7)).updatePrice(3.9);
         std::cout << s_list1;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
     }
     catch (eroare_item& eroare) {
+        std::cout << eroare.what() << "\n";
+    }
+    catch (std::invalid_argument& eroare) {
         std::cout << eroare.what() << "\n";
     }
     catch (std::exception eroare) {

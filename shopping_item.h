@@ -10,15 +10,18 @@
 
 class shopping_item : public item {
     int quantity;
+    double price;
 public:
 
-    shopping_item(const std::string &itemContent, int quantity);
+    shopping_item(const std::string &itemContent, double price, int quantity);
 
     std::ostream& print(std::ostream& os) const override;
 
     std::shared_ptr<item> clone() const override;
 
     void updateQuantity(int newQuantity);
+
+    void updatePrice(double newPrice);
 
     ~shopping_item();
 
