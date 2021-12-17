@@ -10,11 +10,12 @@
 
 class List{
     const int id;
-    std::vector<std::shared_ptr<item>> list;
     int nrOfItems;
     static int id_max;
     std::string listName;
 
+protected:
+    std::vector<std::shared_ptr<item>> list;
 public:
 
     List(const std::string &listName);

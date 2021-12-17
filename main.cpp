@@ -16,9 +16,18 @@ using namespace date::literals;
 
 int main(){
 
-    /*try {
+    try {
         to_do_list l1("aceasta este o lista");
         l1.addItem(std::make_shared<to_do_item>("acesta este un item"));
+        l1.addItem(std::make_shared<to_do_item>("acesta este alt item"));
+        l1.addItem(std::make_shared<to_do_item>("al 3-lea item wow"));
+        l1.addItem(std::make_shared<to_do_item>("al 4-lea item wow"));
+        l1.addItem(std::make_shared<to_do_item>("al 5-lea item wow"));
+        l1.addItem(std::make_shared<to_do_item>("al 6-lea item wow"));
+        l1.addItem(std::make_shared<to_do_item>("al 7-lea item wow"));
+        dynamic_cast<to_do_item&>(*l1.getItem(0)).complete();
+        dynamic_cast<to_do_item&>(*l1.getItem(5)).complete();
+        l1.updatePercentage();
         std::cout << l1;
     }
     catch (eroare_lista& eroare) {
@@ -29,8 +38,8 @@ int main(){
     }
     catch (std::exception eroare) {
         std::cout << eroare.what() << "\n";
-    }*/
-    try{
+    }
+    /*try{
         List list1("workout");
         List list2("groceries");
         list1.addItem(std::make_shared<item>("5km run"));
@@ -39,6 +48,9 @@ int main(){
         list2.addItem(std::make_shared<item>("buy sugar"));
         list2.addItem(std::make_shared<item>("buy flour"));
         list2.addItem(std::make_shared<item>("buy cinnamon"));
+        List list3(list1);
+        List list4("lista");
+        list4 = list2;
         std::cout << "Number of items in list: " << list1.getNrOfItems() << "\n\n";
         std::cout << list1;
         std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
@@ -47,6 +59,7 @@ int main(){
         list2.deleteLastItem();
         list2.deleteItemByID(3);
         std::cout << list2;
+        std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
@@ -59,7 +72,7 @@ int main(){
     }
     catch (std::exception& eroare) {
         std::cout << eroare.what() << "\n";
-    }
+    }*/
 
     return 0;
 }

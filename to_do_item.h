@@ -19,6 +19,10 @@ public:
 
     std::shared_ptr<item> clone() const override;
 
+    void complete();
+
+    bool isComplete();
+
     ~to_do_item();
 };
 

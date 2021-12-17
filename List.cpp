@@ -32,12 +32,9 @@ std::ostream& List::print(std::ostream& os) const {
         os << "List ID: " << this->id << "\n";
         os << "List Name: " << this->listName << "\n";
         os << "-----------------------------------\n";
-        for(const auto& item : this->list)
+        for(const auto& Item : this->list)
         {
-            os << "Item ID: " << item->getId() << "\n";
-            os << "Content: " << item->getItemContent() << "\n";
-            os << "Add date: " << item->getAddDate() << "\n";
-            os << "Update date: " << item->getUpdateDate() << "\n";
+            Item->print(os);
         }
         os << "-----------------------------------\n";
     }
@@ -55,18 +52,18 @@ List &List::operator=(const List &copie) {
     return *this;
 }
 
-void List::addItem(const std::shared_ptr<item>& item) {
-    list.push_back(item);
+void List::addItem(const std::shared_ptr<item>& Item) {
+    list.push_back(Item->clone());
     nrOfItems = list.size();
 }
 
 std::shared_ptr<item>& List::getItem(int ID) {
     if(ID < 0)
         throw std::invalid_argument("ID-ul nu poate fi negativ");
-    for(auto& item : list)
+    for(auto& Item : list)
     {
-        if(item->getId() == ID)
-            return item;
+        if(Item->getId() == ID)
+            return Item;
     }
     throw item_not_found(ID);
 }

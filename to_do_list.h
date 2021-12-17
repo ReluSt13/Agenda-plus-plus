@@ -15,6 +15,8 @@ public:
 
     to_do_list(const std::string &listName);
 
+    void updatePercentage();
+
     std::ostream& print(std::ostream& os) const override;
 
     ~to_do_list();
