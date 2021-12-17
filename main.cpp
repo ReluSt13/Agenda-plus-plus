@@ -10,6 +10,8 @@
 #include "exceptii.h"
 #include "to_do_item.h"
 #include "to_do_list.h"
+#include "shopping_item.h"
+#include "shopping_list.h"
 
 
 using namespace date::literals;
@@ -29,6 +31,14 @@ int main(){
         dynamic_cast<to_do_item&>(*l1.getItem(5)).complete();
         l1.updatePercentage();
         std::cout << l1;
+
+        shopping_item s_item1("acesta este un item", 2);
+        shopping_list s_list1("shopping list1", 15.6);
+        s_list1.addItem(std::make_shared<shopping_item>(s_item1));
+        std::cout << s_list1;
+        s_list1.getItem(7)->updateContent("item1");
+        dynamic_cast<shopping_item&>(*s_list1.getItem(7)).updateQuantity(3);
+        std::cout << s_list1;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
