@@ -19,7 +19,7 @@ using namespace date::literals;
 int main(){
 
     try {
-        to_do_list l1("aceasta este o lista");
+        /*to_do_list l1("aceasta este o lista");
         l1.addItem(std::make_shared<to_do_item>("acesta este un item"));
         l1.addItem(std::make_shared<to_do_item>("acesta este alt item"));
         l1.addItem(std::make_shared<to_do_item>("al 3-lea item wow"));
@@ -30,16 +30,19 @@ int main(){
         dynamic_cast<to_do_item&>(*l1.getItem(0)).complete();
         dynamic_cast<to_do_item&>(*l1.getItem(5)).complete();
         l1.updatePercentage();
-        std::cout << l1;
+        std::cout << l1;*/
 
         shopping_item s_item1("acesta este un item", 3.6,  2);
         shopping_list s_list1("shopping list1", 15.6);
         s_list1.addItem(std::make_shared<shopping_item>(s_item1));
+        s_list1.updateActualPrice();
         std::cout << s_list1;
-        s_list1.getItem(7)->updateContent("item1");
-        dynamic_cast<shopping_item&>(*s_list1.getItem(7)).updateQuantity(3);
-        dynamic_cast<shopping_item&>(*s_list1.getItem(7)).updatePrice(3.9);
+        s_list1.getItem(0)->updateContent("item1");
+        dynamic_cast<shopping_item&>(*s_list1.getItem(0)).updateQuantity(3);
+        dynamic_cast<shopping_item&>(*s_list1.getItem(0)).updatePrice(3.9);
+        s_list1.updateActualPrice();
         std::cout << s_list1;
+
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";

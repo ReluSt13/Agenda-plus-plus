@@ -23,6 +23,10 @@ public:
 
     void updatePrice(double newPrice);
 
+    double getPrice();
+
+    int getQuantity();
+
     ~shopping_item();
 
 };

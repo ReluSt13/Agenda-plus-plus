@@ -27,3 +27,11 @@ void shopping_item::updateQuantity(int newQuantity) {
 void shopping_item::updatePrice(double newPrice) {
     this->price = newPrice;
 }
+
+double shopping_item::getPrice() {
+    return this->price;
+}
+
+int shopping_item::getQuantity() {
+    return this->quantity;
+}

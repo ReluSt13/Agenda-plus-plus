@@ -10,12 +10,19 @@
 
 class shopping_list : public List {
     double maxPrice;
+    double actualPrice;
 public:
     shopping_list(const std::string &listName, double maxPrice);
 
     ~shopping_list();
 
+    void updateActualPrice();
+
     std::ostream& print(std::ostream& os) const override;
+
+    double getActualPrice();
+
+
 };
 
 
