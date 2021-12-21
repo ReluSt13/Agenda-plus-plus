@@ -37,6 +37,11 @@ public:
     explicit eroare_numeLista(int nrChar);
 };
 
+class eroare_adaugareItem : public eroare_lista {
+public:
+    eroare_adaugareItem();
+};
+
 class item_not_found : public eroare_item {
 public:
     explicit item_not_found(int ID);

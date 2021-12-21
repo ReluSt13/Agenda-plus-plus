@@ -20,7 +20,7 @@ public:
     item(const std::string &itemContent, const date::year_month_day &addDate,
          const date::year_month_day &updateDate);
 
-    item(const std::string &itemContent);
+    explicit item(const std::string &itemContent);
 
     item(const item& copie);
 
@@ -36,13 +36,7 @@ public:
 
     int getId() const;
 
-    const std::string &getItemContent() const;
-
-    const date::year_month_day &getAddDate() const;
-
-    const date::year_month_day &getUpdateDate() const;
-
-    void updateContent(std::string itemContent);
+    void updateContent(const std::string& itemContent);
 
 };
 

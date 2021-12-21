@@ -18,7 +18,7 @@ std::shared_ptr<item> shopping_item::clone() const {
     return std::make_shared<shopping_item>(*this);
 }
 
-shopping_item::~shopping_item(){}
+shopping_item::~shopping_item()= default;
 
 void shopping_item::updateQuantity(int newQuantity) {
     this->quantity = newQuantity;
@@ -28,10 +28,11 @@ void shopping_item::updatePrice(double newPrice) {
     this->price = newPrice;
 }
 
-double shopping_item::getPrice() {
+double shopping_item::getPrice() const {
     return this->price;
 }
 
-int shopping_item::getQuantity() {
+int shopping_item::getQuantity() const {
     return this->quantity;
 }
+

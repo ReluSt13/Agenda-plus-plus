@@ -30,6 +30,8 @@ public:
 
     void addItem(const std::shared_ptr<item>& item);
 
+    void setNrOfItems(int nr);
+
     std::shared_ptr<item>& getItem(int ID);
 
     void deleteLastItem();

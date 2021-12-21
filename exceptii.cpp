@@ -22,3 +22,5 @@ eroare_contentUpdate::eroare_contentUpdate(int contentSize) : eroare_item("Eroar
 
 
 item_not_found::item_not_found(int ID) : eroare_item("Item-ul cu ID-ul: "s + std::to_string(ID) + " nu a fost gasit."s) {}
+
+eroare_adaugareItem::eroare_adaugareItem() : eroare_lista("Eroare adaugare item: pretul depaseste limita!") {}

@@ -7,7 +7,7 @@
 
 int List::id_max = 0;
 
-List::List(const std::string &listName) : id(id_max), listName(listName){
+List::List(const std::string &listName) : id(id_max), listName(listName), nrOfItems(0){
     if(listName.empty() || listName.size() >= 40)
         throw eroare_numeLista(listName.size());
     id_max++;
@@ -94,4 +94,8 @@ const int List::getId() const {
 
 int List::getNrOfItems() const {
     return nrOfItems;
+}
+
+void List::setNrOfItems(int nr) {
+    this->nrOfItems = nr;
 }

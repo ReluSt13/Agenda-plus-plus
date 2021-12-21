@@ -23,9 +23,9 @@ public:
 
     void updatePrice(double newPrice);
 
-    double getPrice();
+    double getPrice() const;
 
-    int getQuantity();
+    int getQuantity() const;
 
     ~shopping_item();
 

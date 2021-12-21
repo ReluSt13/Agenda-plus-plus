@@ -42,6 +42,10 @@ int main(){
         dynamic_cast<shopping_item&>(*s_list1.getItem(0)).updatePrice(3.9);
         s_list1.updateActualPrice();
         std::cout << s_list1;
+        shopping_item s_item2("acesta este un item", 3.9,  1);
+        s_list1.addItem(std::make_shared<shopping_item>(s_item2));
+        s_list1.updateActualPrice();
+        std::cout << s_list1;
 
     }
     catch (eroare_lista& eroare) {

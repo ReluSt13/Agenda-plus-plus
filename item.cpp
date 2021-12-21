@@ -49,10 +49,10 @@ std::shared_ptr<item> item::clone() const {
     return std::make_shared<item>(*this);
 }
 
-item::~item() {}
+item::~item() = default;
 
 
-void item::updateContent(std::string itemContent) {
+void item::updateContent(const std::string& itemContent) {
     if(itemContent.size() <= 0 || itemContent.size() >= 500)
         throw eroare_contentUpdate(itemContent.size());
     item::itemContent = itemContent;
@@ -63,14 +63,3 @@ int item::getId() const {
     return id;
 }
 
-const std::string &item::getItemContent() const {
-    return itemContent;
-}
-
-const date::year_month_day &item::getAddDate() const {
-    return addDate;
-}
-
-const date::year_month_day &item::getUpdateDate() const {
-    return updateDate;
-}

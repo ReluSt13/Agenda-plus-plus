@@ -7,6 +7,7 @@
 
 
 #include "List.h"
+#include "shopping_item.h"
 
 class shopping_list : public List {
     double maxPrice;
@@ -18,10 +19,9 @@ public:
 
     void updateActualPrice();
 
+    void addItem(const std::shared_ptr<shopping_item>& Item);
+
     std::ostream& print(std::ostream& os) const override;
-
-    double getActualPrice();
-
 
 };
 
