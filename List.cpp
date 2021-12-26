@@ -31,6 +31,7 @@ std::ostream& List::print(std::ostream& os) const {
     {
         os << "List ID: " << this->id << "\n";
         os << "List Name: " << this->listName << "\n";
+        os << "Nr. of Items: " << this->nrOfItems << "\n";
         os << "-----------------------------------\n";
         for(const auto& Item : this->list)
         {

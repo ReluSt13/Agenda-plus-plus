@@ -17,6 +17,8 @@ class item{
 
 
 public:
+    item();
+
     item(const std::string &itemContent, const date::year_month_day &addDate,
          const date::year_month_day &updateDate);
 

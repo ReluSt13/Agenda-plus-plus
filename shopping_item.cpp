@@ -8,7 +8,7 @@ shopping_item::shopping_item(const std::string &itemContent, double price, int q
 
 std::ostream& shopping_item::print(std::ostream& os) const {
     item::print(os);
-    os << "Price: " << this->price << "$\n";
+    os << "Price: $" << this->price << "\n";
     os << "Quantity: x" << this->quantity << "\n";
     os << "---------------\n";
     return os;
@@ -35,4 +35,15 @@ double shopping_item::getPrice() const {
 int shopping_item::getQuantity() const {
     return this->quantity;
 }
+
+void shopping_item::setQuantity(int quantity) {
+    shopping_item::quantity = quantity;
+}
+
+void shopping_item::setPrice(double price) {
+    shopping_item::price = price;
+}
+
+shopping_item::shopping_item() = default;
+
 

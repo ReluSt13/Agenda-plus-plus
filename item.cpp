@@ -63,3 +63,5 @@ int item::getId() const {
     return id;
 }
 
+item::item() = default;
+

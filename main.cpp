@@ -12,6 +12,7 @@
 #include "to_do_list.h"
 #include "shopping_item.h"
 #include "shopping_list.h"
+#include "shoppingList_factory.h"
 
 
 using namespace date::literals;
@@ -32,7 +33,7 @@ int main(){
         l1.updatePercentage();
         std::cout << l1;*/
 
-        shopping_item s_item1("acesta este un item", 3.6,  2);
+        /*shopping_item s_item1("acesta este un item", 3.6,  2);
         shopping_list s_list1("shopping list1", 15.6);
         s_list1.addItem(std::make_shared<shopping_item>(s_item1));
         s_list1.updateActualPrice();
@@ -45,7 +46,15 @@ int main(){
         shopping_item s_item2("acesta este un item", 3.9,  1);
         s_list1.addItem(std::make_shared<shopping_item>(s_item2));
         s_list1.updateActualPrice();
-        std::cout << s_list1;
+        std::cout << s_list1;*/
+        shopping_list lista_m = shoppingList_factory::foodList();
+        std::cout << lista_m;
+
+        shopping_list lista_back = shoppingList_factory::backToSchoolList();
+        std::cout << lista_back;
+
+        shopping_list lista_birthday = shoppingList_factory::birthdayList();
+        std::cout << lista_birthday;
 
     }
     catch (eroare_lista& eroare) {

@@ -12,6 +12,7 @@ class shopping_item : public item {
     int quantity;
     double price;
 public:
+    shopping_item();
 
     shopping_item(const std::string &itemContent, double price, int quantity);
 
@@ -26,6 +27,10 @@ public:
     double getPrice() const;
 
     int getQuantity() const;
+
+    void setQuantity(int quantity);
+
+    void setPrice(double price);
 
     ~shopping_item();
 

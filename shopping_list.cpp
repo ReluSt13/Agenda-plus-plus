@@ -24,8 +24,8 @@ void shopping_list::addItem(const std::shared_ptr<shopping_item>& Item) {
 }
 
 std::ostream &shopping_list::print(std::ostream &os) const {
-    os << "Maximum price: " << this->maxPrice << "$\n";
-    os << "Actual price: " << this->actualPrice << "$\n";
+    os << "Maximum price: $" << this->maxPrice << "\n";
+    os << "Actual price: $" << this->actualPrice << "\n";
     List::print(os);
     return os;
 }
