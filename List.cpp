@@ -54,11 +54,6 @@ List &List::operator=(const List &copie) {
     return *this;
 }
 
-void List::addItem(const std::shared_ptr<item>& Item) {
-    list.push_back(Item->clone());
-    nrOfItems = list.size();
-}
-
 std::shared_ptr<item>& List::getItem(int ID) {
     if(ID < 0)
         throw std::invalid_argument("ID-ul nu poate fi negativ");
@@ -105,3 +100,5 @@ void List::setNrOfItems(int nr) {
 std::shared_ptr<List> List::clone() const {
     return std::make_shared<List>(*this);
 }
+
+

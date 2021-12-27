@@ -21,13 +21,13 @@ int main(){
 
     try {
         /*to_do_list l1("aceasta este o lista");
-        l1.addItem(std::make_shared<to_do_item>("acesta este un item"));
-        l1.addItem(std::make_shared<to_do_item>("acesta este alt item"));
-        l1.addItem(std::make_shared<to_do_item>("al 3-lea item wow"));
-        l1.addItem(std::make_shared<to_do_item>("al 4-lea item wow"));
-        l1.addItem(std::make_shared<to_do_item>("al 5-lea item wow"));
-        l1.addItem(std::make_shared<to_do_item>("al 6-lea item wow"));
-        l1.addItem(std::make_shared<to_do_item>("al 7-lea item wow"));
+        l1.addItems(std::make_shared<to_do_item>("acesta este un item"));
+        l1.addItems(std::make_shared<to_do_item>("acesta este alt item"));
+        l1.addItems(std::make_shared<to_do_item>("al 3-lea item wow"));
+        l1.addItems(std::make_shared<to_do_item>("al 4-lea item wow"));
+        l1.addItems(std::make_shared<to_do_item>("al 5-lea item wow"));
+        l1.addItems(std::make_shared<to_do_item>("al 6-lea item wow"));
+        l1.addItems(std::make_shared<to_do_item>("al 7-lea item wow"));
         dynamic_cast<to_do_item&>(*l1.getItem(0)).complete();
         dynamic_cast<to_do_item&>(*l1.getItem(5)).complete();
         l1.updatePercentage();
@@ -35,7 +35,7 @@ int main(){
 
         /*shopping_item s_item1("acesta este un item", 3.6,  2);
         shopping_list s_list1("shopping list1", 15.6);
-        s_list1.addItem(std::make_shared<shopping_item>(s_item1));
+        s_list1.addItems(std::make_shared<shopping_item>(s_item1));
         s_list1.updateActualPrice();
         std::cout << s_list1;
         s_list1.getItem(0)->updateContent("item1");
@@ -44,7 +44,7 @@ int main(){
         s_list1.updateActualPrice();
         std::cout << s_list1;
         shopping_item s_item2("acesta este un item", 3.9,  1);
-        s_list1.addItem(std::make_shared<shopping_item>(s_item2));
+        s_list1.addItems(std::make_shared<shopping_item>(s_item2));
         s_list1.updateActualPrice();
         std::cout << s_list1;*/
         /*shopping_list lista_m = shoppingList_factory::foodList();
@@ -57,23 +57,28 @@ int main(){
         std::cout << lista_birthday;*/
 
         List l1("Lista1");
-        l1.addItem(std::make_shared<item>("item1"));
-        l1.addItem(std::make_shared<item>("item2"));
+        l1.addItems(std::make_shared<item>("item1"));
+        l1.addItems(std::make_shared<item>("item2"));
         List l2("Lista2");
-        l2.addItem(std::make_shared<item>("item1"));
-        l2.addItem(std::make_shared<item>("item2"));
+        l2.addItems(std::make_shared<item>("item1"));
+        l2.addItems(std::make_shared<item>("item2"));
         auto Agenda = agenda::get_agenda();
         Agenda->addList(std::make_shared<List>(l1));
         Agenda->addList(std::make_shared<List>(l2));
         shopping_list lista_b = shoppingList_factory::birthdayList();
         Agenda->addList(std::make_shared<shopping_list>(lista_b));
         to_do_list todoL("ToDoList");
-        todoL.addItem(std::make_shared<to_do_item>("item1", true));
-        todoL.addItem(std::make_shared<to_do_item>("item2", false));
-        todoL.addItem(std::make_shared<to_do_item>("item3", true));
+        todoL.addItems(std::make_shared<to_do_item>("item1", true));
+        todoL.addItems(std::make_shared<to_do_item>("item2", false));
+        todoL.addItems(std::make_shared<to_do_item>("item3", true));
         todoL.updatePercentage();
         Agenda->addList(std::make_shared<to_do_list>(todoL));
         std::cout << *Agenda;
+        delete Agenda;
+
+        List l7("lista");
+        l7.addItems(std::make_shared<item>("item1"), std::make_shared<item>("item2"), std::make_shared<item>("item3"));
+        std::cout << l7;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
@@ -90,12 +95,12 @@ int main(){
     /*try{
         List list1("workout");
         List list2("groceries");
-        list1.addItem(std::make_shared<item>("5km run"));
-        list1.addItem(std::make_shared<item>("20 push-ups"));
-        list2.addItem(std::make_shared<item>("buy tomatoes"));
-        list2.addItem(std::make_shared<item>("buy sugar"));
-        list2.addItem(std::make_shared<item>("buy flour"));
-        list2.addItem(std::make_shared<item>("buy cinnamon"));
+        list1.addItems(std::make_shared<item>("5km run"));
+        list1.addItems(std::make_shared<item>("20 push-ups"));
+        list2.addItems(std::make_shared<item>("buy tomatoes"));
+        list2.addItems(std::make_shared<item>("buy sugar"));
+        list2.addItems(std::make_shared<item>("buy flour"));
+        list2.addItems(std::make_shared<item>("buy cinnamon"));
         List list3(list1);
         List list4("lista");
         list4 = list2;

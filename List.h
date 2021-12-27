@@ -28,7 +28,11 @@ public:
 
     virtual std::ostream& print(std::ostream& os) const;
 
-    void addItem(const std::shared_ptr<item>& item);
+    template<typename... Args>
+    void addItems(Args &&... args) {
+        (list.push_back(std::forward<Args>(args)), ...);
+        nrOfItems = list.size();
+    }
 
     void setNrOfItems(int nr);
 
