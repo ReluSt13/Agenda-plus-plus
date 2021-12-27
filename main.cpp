@@ -47,15 +47,33 @@ int main(){
         s_list1.addItem(std::make_shared<shopping_item>(s_item2));
         s_list1.updateActualPrice();
         std::cout << s_list1;*/
-        shopping_list lista_m = shoppingList_factory::foodList();
+        /*shopping_list lista_m = shoppingList_factory::foodList();
         std::cout << lista_m;
 
         shopping_list lista_back = shoppingList_factory::backToSchoolList();
         std::cout << lista_back;
 
         shopping_list lista_birthday = shoppingList_factory::birthdayList();
-        std::cout << lista_birthday;
+        std::cout << lista_birthday;*/
 
+        List l1("Lista1");
+        l1.addItem(std::make_shared<item>("item1"));
+        l1.addItem(std::make_shared<item>("item2"));
+        List l2("Lista2");
+        l2.addItem(std::make_shared<item>("item1"));
+        l2.addItem(std::make_shared<item>("item2"));
+        auto Agenda = agenda::get_agenda();
+        Agenda->addList(std::make_shared<List>(l1));
+        Agenda->addList(std::make_shared<List>(l2));
+        shopping_list lista_b = shoppingList_factory::birthdayList();
+        Agenda->addList(std::make_shared<shopping_list>(lista_b));
+        to_do_list todoL("ToDoList");
+        todoL.addItem(std::make_shared<to_do_item>("item1", true));
+        todoL.addItem(std::make_shared<to_do_item>("item2", false));
+        todoL.addItem(std::make_shared<to_do_item>("item3", true));
+        todoL.updatePercentage();
+        Agenda->addList(std::make_shared<to_do_list>(todoL));
+        std::cout << *Agenda;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";

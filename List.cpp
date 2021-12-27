@@ -18,6 +18,7 @@ List::List(const List &copie) : id(copie.id), listName(copie.listName),
     for (const auto &data : copie.list) {
         list.push_back(data->clone());
     }
+
 }
 
 std::ostream &operator<<(std::ostream &os, const List &to_do_list) {
@@ -37,7 +38,7 @@ std::ostream& List::print(std::ostream& os) const {
         {
             Item->print(os);
         }
-        os << "-----------------------------------\n";
+        os << "-----------------------------------\n\n";
     }
     return os;
 }
@@ -99,4 +100,8 @@ int List::getNrOfItems() const {
 
 void List::setNrOfItems(int nr) {
     this->nrOfItems = nr;
+}
+
+std::shared_ptr<List> List::clone() const {
+    return std::make_shared<List>(*this);
 }

@@ -22,9 +22,13 @@ void to_do_list::updatePercentage() {
 }
 
 std::ostream& to_do_list::print(std::ostream& os) const {
-    List::print(os);
     os << "Percentage complete: " << this->percentageComplete << "%\n";
+    List::print(os);
     return os;
+}
+
+std::shared_ptr<List> to_do_list::clone() const {
+    return std::make_shared<to_do_list>(*this);
 }
 
 

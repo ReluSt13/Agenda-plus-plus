@@ -34,6 +34,8 @@ public:
 
     std::shared_ptr<item>& getItem(int ID);
 
+    virtual std::shared_ptr<List> clone() const;
+
     void deleteLastItem();
 
     void deleteItemByID(int ID);

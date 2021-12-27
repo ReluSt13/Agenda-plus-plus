@@ -23,6 +23,8 @@ public:
 
     std::ostream& print(std::ostream& os) const override;
 
+    std::shared_ptr<List> clone() const override;
+
 };
 
 

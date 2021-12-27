@@ -9,10 +9,27 @@
 #include "List.h"
 
 class agenda{
-    std::vector<List> notebook;
+    std::vector<std::shared_ptr<List>> notebook;
+
+    unsigned short nrOfLists;
+
+    agenda() = default;
+
+    static agenda* app;
 
 public:
-    agenda(const std::vector<List> &notebook);
+
+    agenda(const agenda&) = delete;
+
+    agenda& operator=(const agenda&) = delete;
+
+    static agenda* get_agenda();
+
+    void addList(const std::shared_ptr<List>& lista);
+
+    friend std::ostream &operator<<(std::ostream &os, const agenda &agenda);
+
+    std::ostream& print(std::ostream& os) const;
 };
 
 #endif //AGENDA_PLUS_PLUS_AGENDA_H

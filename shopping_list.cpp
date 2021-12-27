@@ -30,6 +30,10 @@ std::ostream &shopping_list::print(std::ostream &os) const {
     return os;
 }
 
+std::shared_ptr<List> shopping_list::clone() const {
+    return std::make_shared<shopping_list>(*this);
+}
+
 
 
 
