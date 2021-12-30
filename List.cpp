@@ -99,4 +99,6 @@ std::shared_ptr<List> List::clone() const {
     return std::make_shared<List>(*this);
 }
 
+List::~List() = default;
+
 

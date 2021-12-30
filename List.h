@@ -48,6 +48,8 @@ public:
 
     int getNrOfItems() const;
 
+    virtual ~List();
+
 };
 
 #endif //AGENDA_PLUS_PLUS_LIST_H
