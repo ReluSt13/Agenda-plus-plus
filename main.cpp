@@ -79,7 +79,7 @@ int main(){
         l7.addItems(std::make_shared<item>("item1"), std::make_shared<item>("item2"), std::make_shared<item>("item3"));
         std::cout << l7;*/
 
-        shopping_list listShop("wow", 12.3);
+        /*shopping_list listShop("wow", 12.3);
         listShop.addItems(std::make_shared<shopping_item>("wow1", 3, 2),
                           std::make_shared<shopping_item>("wow1", 2, 2),
                           std::make_shared<shopping_item>("wow2", 0.2, 3));
@@ -89,10 +89,18 @@ int main(){
         std::cout << listShop;
         to_do_list todoL("ToDoList");
         todoL.addItems(std::make_shared<to_do_item>("item1", false), std::make_shared<to_do_item>("item2", true));
-        todoL.addItems(std::make_shared<to_do_item>("item3", true));
+        todoL.addItems(std::make_shared<to_do_item>("item3", true), std::make_shared<to_do_item>("item4", false));
         todoL.deleteItemByID(3);
-        std::cout << todoL;
-
+        std::cout << todoL;*/
+        auto Agenda = agenda::get_agenda();
+        shopping_list list1 = shoppingList_factory<4>::foodList();
+        shopping_list list2 = shoppingList_factory<10>::backToSchoolList();
+        shopping_list list3 = shoppingList_factory<7>::birthdayList();
+        Agenda->addList(std::make_shared<shopping_list>(list1));
+        Agenda->addList(std::make_shared<shopping_list>(list2));
+        Agenda->addList(std::make_shared<shopping_list>(list3));
+        std::cout << *Agenda;
+        delete Agenda;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";

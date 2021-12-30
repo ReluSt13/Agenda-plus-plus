@@ -40,9 +40,9 @@ public:
 
     virtual std::shared_ptr<List> clone() const;
 
-    virtual void deleteLastItem();
+    void deleteLastItem();
 
-    virtual void deleteItemByID(int ID);
+    void deleteItemByID(int ID);
 
     int getId() const;
 

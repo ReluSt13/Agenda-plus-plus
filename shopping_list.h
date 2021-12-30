@@ -15,6 +15,7 @@ class shopping_list : public List {
     double actualPrice;
     void updateActualPrice();
 public:
+    template<int>
     friend class shoppingList_factory;
 
     shopping_list(const std::string &listName, double maxPrice);
