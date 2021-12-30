@@ -28,6 +28,8 @@ public:
 
     int getQuantity() const;
 
+    double totalPrice() const;
+
     void setQuantity(int Quantity);
 
     void setPrice(double Price);

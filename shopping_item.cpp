@@ -44,6 +44,10 @@ void shopping_item::setPrice(double Price) {
     shopping_item::price = Price;
 }
 
+double shopping_item::totalPrice() const {
+    return price * quantity;
+}
+
 shopping_item::shopping_item() = default;
 
 

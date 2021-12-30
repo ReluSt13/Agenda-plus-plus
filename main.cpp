@@ -56,7 +56,7 @@ int main(){
         shopping_list lista_birthday = shoppingList_factory::birthdayList();
         std::cout << lista_birthday;*/
 
-        List l1("Lista1");
+        /*List l1("Lista1");
         l1.addItems(std::make_shared<item>("item1"));
         l1.addItems(std::make_shared<item>("item2"));
         List l2("Lista2");
@@ -77,10 +77,12 @@ int main(){
 
         List l7("lista");
         l7.addItems(std::make_shared<item>("item1"), std::make_shared<item>("item2"), std::make_shared<item>("item3"));
-        std::cout << l7;
+        std::cout << l7;*/
 
         shopping_list listShop("wow", 12.3);
-        listShop.addItems(std::make_shared<shopping_item>("wow1", 1, 1), std::make_shared<shopping_item>("wow2", 2, 2));
+        listShop.addItems(std::make_shared<shopping_item>("wow1", 3, 2),
+                          std::make_shared<shopping_item>("wow1", 2, 2),
+                          std::make_shared<shopping_item>("wow2", 1.5, 3));
         std::cout << listShop;
 
     }
