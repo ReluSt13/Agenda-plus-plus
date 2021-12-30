@@ -82,6 +82,7 @@ int main(){
         shopping_list listShop("wow", 12.3);
         listShop.addItems(std::make_shared<shopping_item>("wow1", 1, 1), std::make_shared<shopping_item>("wow2", 2, 2));
         std::cout << listShop;
+
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
@@ -115,7 +116,7 @@ int main(){
         list2.deleteLastItem();
         list2.deleteItemByID(3);
         std::cout << list2;
-        std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
+        //std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
