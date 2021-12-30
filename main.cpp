@@ -116,7 +116,7 @@ int main(){
         list2.deleteLastItem();
         list2.deleteItemByID(3);
         std::cout << list2;
-        //std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
+        std::cout << "Number of items in list: " << list2.getNrOfItems() << "\n\n";
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
