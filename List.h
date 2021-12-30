@@ -18,7 +18,7 @@ protected:
     std::vector<std::shared_ptr<item>> list;
 public:
 
-    List(const std::string &listName);
+    explicit List(const std::string &listName);
 
     List(const List &copie);
 

@@ -22,7 +22,7 @@ public:
 
     template<typename... Args>
     void addItems(Args &&... args) {
-        if((args, ...)->getPrice() * (args, ...)->getQuantity() + this->actualPrice > this->maxPrice)
+        if((args->getPrice(), ...) * (args->getQuantity(), ...) + this->actualPrice > this->maxPrice)
             throw eroare_adaugareItem();
         (list.push_back(std::forward<Args>(args)), ...);
         this->setNrOfItems();

@@ -7,18 +7,16 @@
 
 int List::id_max = 0;
 
-List::List(const std::string &listName) : id(id_max), listName(listName), nrOfItems(0){
+List::List(const std::string &listName) : id(id_max), nrOfItems(0), listName(listName){
     if(listName.empty() || listName.size() >= 40)
         throw eroare_numeLista(listName.size());
     id_max++;
 }
 
-List::List(const List &copie) : id(copie.id), listName(copie.listName),
-                                                   nrOfItems(copie.nrOfItems) {
+List::List(const List &copie) : id(copie.id),nrOfItems(copie.nrOfItems), listName(copie.listName){
     for (const auto &data : copie.list) {
         list.push_back(data->clone());
     }
-
 }
 
 std::ostream &operator<<(std::ostream &os, const List &to_do_list) {
