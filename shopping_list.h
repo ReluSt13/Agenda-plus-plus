@@ -8,6 +8,7 @@
 
 #include "List.h"
 #include "shopping_item.h"
+#include "exceptii.h"
 
 class shopping_list : public List {
     double maxPrice;
@@ -19,7 +20,14 @@ public:
 
     void updateActualPrice();
 
-    void addItem(const std::shared_ptr<shopping_item>& Item);
+    template<typename... Args>
+    void addItems(Args &&... args) {
+        if((args, ...)->getPrice() * (args, ...)->getQuantity() + this->actualPrice > this->maxPrice)
+            throw eroare_adaugareItem();
+        (list.push_back(std::forward<Args>(args)), ...);
+        this->setNrOfItems();
+        this->updateActualPrice();
+    }
 
     std::ostream& print(std::ostream& os) const override;
 

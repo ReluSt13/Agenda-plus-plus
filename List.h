@@ -24,7 +24,7 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const List &to_do_list);
 
-    virtual List &operator=(const List &copie);
+    List &operator=(const List &copie);
 
     virtual std::ostream& print(std::ostream& os) const;
 
@@ -34,7 +34,7 @@ public:
         nrOfItems = list.size();
     }
 
-    void setNrOfItems(int nr);
+    void setNrOfItems();
 
     std::shared_ptr<item>& getItem(int ID);
 
@@ -44,7 +44,7 @@ public:
 
     void deleteItemByID(int ID);
 
-    const int getId() const;
+    int getId() const;
 
     int getNrOfItems() const;
 

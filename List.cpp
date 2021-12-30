@@ -85,7 +85,7 @@ void List::deleteItemByID(int ID) {
     nrOfItems = list.size();
 }
 
-const int List::getId() const {
+int List::getId() const {
     return id;
 }
 
@@ -93,8 +93,8 @@ int List::getNrOfItems() const {
     return nrOfItems;
 }
 
-void List::setNrOfItems(int nr) {
-    this->nrOfItems = nr;
+void List::setNrOfItems() {
+    this->nrOfItems = list.size();
 }
 
 std::shared_ptr<List> List::clone() const {

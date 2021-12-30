@@ -68,8 +68,7 @@ int main(){
         shopping_list lista_b = shoppingList_factory::birthdayList();
         Agenda->addList(std::make_shared<shopping_list>(lista_b));
         to_do_list todoL("ToDoList");
-        todoL.addItems(std::make_shared<to_do_item>("item1", true));
-        todoL.addItems(std::make_shared<to_do_item>("item2", false));
+        todoL.addItems(std::make_shared<to_do_item>("item1", true), std::make_shared<to_do_item>("item2", false));
         todoL.addItems(std::make_shared<to_do_item>("item3", true));
         todoL.updatePercentage();
         Agenda->addList(std::make_shared<to_do_list>(todoL));
@@ -79,6 +78,10 @@ int main(){
         List l7("lista");
         l7.addItems(std::make_shared<item>("item1"), std::make_shared<item>("item2"), std::make_shared<item>("item3"));
         std::cout << l7;
+
+        shopping_list listShop("wow", 12.3);
+        listShop.addItems(std::make_shared<shopping_item>("wow1", 1, 1), std::make_shared<shopping_item>("wow2", 2, 2));
+        std::cout << listShop;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";
@@ -89,7 +92,7 @@ int main(){
     catch (std::invalid_argument& eroare) {
         std::cout << eroare.what() << "\n";
     }
-    catch (std::exception eroare) {
+    catch (std::exception& eroare) {
         std::cout << eroare.what() << "\n";
     }
     /*try{
