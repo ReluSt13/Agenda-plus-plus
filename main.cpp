@@ -82,8 +82,16 @@ int main(){
         shopping_list listShop("wow", 12.3);
         listShop.addItems(std::make_shared<shopping_item>("wow1", 3, 2),
                           std::make_shared<shopping_item>("wow1", 2, 2),
-                          std::make_shared<shopping_item>("wow2", 1.5, 3));
+                          std::make_shared<shopping_item>("wow2", 0.2, 3));
+        listShop.getItem(1)->updateContent("UPDATED");
+        listShop.updateMaxPrice(13.3);
+        listShop.deleteLastItem();
         std::cout << listShop;
+        to_do_list todoL("ToDoList");
+        todoL.addItems(std::make_shared<to_do_item>("item1", false), std::make_shared<to_do_item>("item2", true));
+        todoL.addItems(std::make_shared<to_do_item>("item3", true));
+        todoL.deleteItemByID(3);
+        std::cout << todoL;
 
     }
     catch (eroare_lista& eroare) {

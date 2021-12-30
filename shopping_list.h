@@ -13,12 +13,13 @@
 class shopping_list : public List {
     double maxPrice;
     double actualPrice;
+    void updateActualPrice();
 public:
+    friend class shoppingList_factory;
+
     shopping_list(const std::string &listName, double maxPrice);
 
     ~shopping_list();
-
-    void updateActualPrice();
 
     template<typename... Args>
     void addItems(Args &&... args) {
@@ -28,6 +29,12 @@ public:
         this->setNrOfItems();
         this->updateActualPrice();
     }
+
+    void deleteLastItem();
+
+    void deleteItemByID(int ID);
+
+    void updateMaxPrice(double newMaxPrice);
 
     std::ostream& print(std::ostream& os) const override;
 

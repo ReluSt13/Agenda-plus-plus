@@ -26,6 +26,20 @@ std::shared_ptr<List> shopping_list::clone() const {
     return std::make_shared<shopping_list>(*this);
 }
 
+void shopping_list::updateMaxPrice(double newMaxPrice) {
+    this->maxPrice = newMaxPrice;
+}
+
+void shopping_list::deleteItemByID(int ID) {
+    List::deleteItemByID(ID);
+    this->updateActualPrice();
+}
+
+void shopping_list::deleteLastItem() {
+    List::deleteLastItem();
+    this->updateActualPrice();
+}
+
 
 
 

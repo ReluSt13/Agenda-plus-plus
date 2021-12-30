@@ -10,14 +10,24 @@
 
 class to_do_list : public List {
     double percentageComplete;
+    void updatePercentage();
 public:
     to_do_list(const std::string &listName, double percentageComplete);
 
     to_do_list(const std::string &listName);
 
-    void updatePercentage();
+    std::ostream & print(std::ostream& os) const override;
 
-    std::ostream& print(std::ostream& os) const override;
+    template<typename... Args>
+    void addItems(Args &&... args) {
+        (list.push_back(std::forward<Args>(args)), ...);
+        this->setNrOfItems();
+        this->updatePercentage();
+    }
+
+    void deleteLastItem();
+
+    void deleteItemByID(int ID);
 
     std::shared_ptr<List> clone() const override;
 

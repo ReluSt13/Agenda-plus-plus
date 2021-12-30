@@ -21,7 +21,7 @@ void to_do_list::updatePercentage() {
     this->percentageComplete = ((double)nrOfItemsCompleted / (double)this->getNrOfItems()) * 100;
 }
 
-std::ostream& to_do_list::print(std::ostream& os) const {
+std::ostream & to_do_list::print(std::ostream& os) const {
     os << "Percentage complete: " << this->percentageComplete << "%\n";
     List::print(os);
     return os;
@@ -29,6 +29,16 @@ std::ostream& to_do_list::print(std::ostream& os) const {
 
 std::shared_ptr<List> to_do_list::clone() const {
     return std::make_shared<to_do_list>(*this);
+}
+
+void to_do_list::deleteLastItem() {
+    List::deleteLastItem();
+    this->updatePercentage();
+}
+
+void to_do_list::deleteItemByID(int ID) {
+    List::deleteItemByID(ID);
+    this->updatePercentage();
 }
 
 
