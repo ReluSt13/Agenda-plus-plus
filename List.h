@@ -28,11 +28,15 @@ public:
 
     virtual std::ostream& print(std::ostream& os) const;
 
+    virtual void updateAttributes();
+
     template<typename... Args>
-    void addItems(Args &&... args) {
-        (list.push_back(std::forward<Args>(args)), ...);
+    void addItems(List& l, Args &&... args) {
+        (l.addToList(args), ...);
         nrOfItems = list.size();
     }
+
+    virtual void addToList(std::shared_ptr<item> Item);
 
     void setNrOfItems();
 

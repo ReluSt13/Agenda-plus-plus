@@ -22,18 +22,13 @@ public:
 
     ~shopping_list();
 
-    template<typename... Args>
-    void addItems(Args &&... args) {
-        if((args->totalPrice() + ...) + this->actualPrice > this->maxPrice)
-            throw eroare_adaugareItem();
-        (list.push_back(std::forward<Args>(args)), ...);
-        this->setNrOfItems();
-        this->updateActualPrice();
-    }
+    void addToList(std::shared_ptr<item> Item) override;
 
     void deleteLastItem();
 
     void deleteItemByID(int ID);
+
+    void updateAttributes() override;
 
     void updateMaxPrice(double newMaxPrice);
 
@@ -45,3 +40,10 @@ public:
 
 
 #endif //AGENDA_PLUS_PLUS_SHOPPING_LIST_H
+
+
+
+
+
+
+

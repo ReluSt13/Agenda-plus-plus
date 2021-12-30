@@ -101,6 +101,10 @@ int main(){
         Agenda->addList(std::make_shared<shopping_list>(list3));
         std::cout << *Agenda;
         delete Agenda;
+        to_do_list todoL("ToDoList");
+        todoL.addItems(std::make_shared<to_do_item>("item1", false), std::make_shared<to_do_item>("item2", true));
+        todoL.addItems(std::make_shared<to_do_item>("item3", true), std::make_shared<to_do_item>("item4", false));
+        std::cout << todoL;
     }
     catch (eroare_lista& eroare) {
         std::cout << eroare.what() << "\n";

@@ -25,6 +25,8 @@ public:
         this->updatePercentage();
     }
 
+    void updateAttributes() override;
+
     void deleteLastItem();
 
     void deleteItemByID(int ID);

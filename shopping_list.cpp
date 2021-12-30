@@ -40,6 +40,30 @@ void shopping_list::deleteLastItem() {
     this->updateActualPrice();
 }
 
+void shopping_list::addToList(std::shared_ptr<item> Item) {
+    if(dynamic_cast<shopping_item&>(*Item).totalPrice() + this->actualPrice > this->maxPrice)
+        throw eroare_adaugareItem();
+    List::addToList(Item);
+}
+
+void shopping_list::updateAttributes() {
+    this->updateActualPrice();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

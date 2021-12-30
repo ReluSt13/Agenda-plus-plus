@@ -99,6 +99,29 @@ std::shared_ptr<List> List::clone() const {
     return std::make_shared<List>(*this);
 }
 
+void List::addToList(std::shared_ptr<item> Item) {
+    this->list.push_back(Item->clone());
+    this->updateAttributes();
+}
+
+void List::updateAttributes() {}
+
 List::~List() = default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -41,4 +41,8 @@ void to_do_list::deleteItemByID(int ID) {
     this->updatePercentage();
 }
 
+void to_do_list::updateAttributes() {
+    this->updatePercentage();
+}
+
 
