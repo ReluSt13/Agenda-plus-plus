@@ -38,7 +38,7 @@ public:
 
     int getId() const;
 
-    void updateContent(const std::string& itemContent);
+    void updateContent(const std::string& Content);
 
 };
 

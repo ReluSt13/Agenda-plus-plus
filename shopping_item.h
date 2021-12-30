@@ -28,9 +28,9 @@ public:
 
     int getQuantity() const;
 
-    void setQuantity(int quantity);
+    void setQuantity(int Quantity);
 
-    void setPrice(double price);
+    void setPrice(double Price);
 
     ~shopping_item();
 

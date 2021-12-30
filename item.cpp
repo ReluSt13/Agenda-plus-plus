@@ -52,10 +52,10 @@ std::shared_ptr<item> item::clone() const {
 item::~item() = default;
 
 
-void item::updateContent(const std::string& itemContent) {
-    if(itemContent.size() <= 0 || itemContent.size() >= 500)
-        throw eroare_contentUpdate(itemContent.size());
-    item::itemContent = itemContent;
+void item::updateContent(const std::string& Content) {
+    if(Content.size() <= 0 || Content.size() >= 500)
+        throw eroare_contentUpdate(Content.size());
+    item::itemContent = Content;
     item::updateDate = date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
 }
 

@@ -36,12 +36,12 @@ int shopping_item::getQuantity() const {
     return this->quantity;
 }
 
-void shopping_item::setQuantity(int quantity) {
-    shopping_item::quantity = quantity;
+void shopping_item::setQuantity(int Quantity) {
+    shopping_item::quantity = Quantity;
 }
 
-void shopping_item::setPrice(double price) {
-    shopping_item::price = price;
+void shopping_item::setPrice(double Price) {
+    shopping_item::price = Price;
 }
 
 shopping_item::shopping_item() = default;
